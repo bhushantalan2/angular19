@@ -1,2 +1,24 @@
-<p>angular-basic works!</p>
+<h2>Employee List</h2>
+<!-- <pre>{{ employees | json }}</pre> -->
 
+<div *ngIf="loading">Loading employees...</div>
+<div *ngIf="error" class="error">{{ error }}</div>
+
+<table *ngIf="!loading && !error" border="1" cellpadding="8" cellspacing="0">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Salary</th>
+      <th>Age</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let emp of employees">
+      <td>{{ emp.id }}</td>
+      <td>{{ emp.employee_name }}</td>
+      <td>{{ emp.employee_salary }}</td>
+      <td>{{ emp.employee_age }}</td>
+    </tr>
+  </tbody>
+</table>
