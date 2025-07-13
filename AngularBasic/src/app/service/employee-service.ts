@@ -20,11 +20,16 @@ interface ApiResponse {
 })
 export class EmployeeService {
 
-  private apiUrl = 'https://dummy.restapiexample.com/api/v1/employees';
+  private apiUrl = '';
 
   constructor(private http: HttpClient) { }
 
   getEmployees(): Observable<ApiResponse> {
+    this.apiUrl = 'https://dummy.restapiexample.com/api/v1/employees';
+    return this.http.get<ApiResponse>(this.apiUrl);
+  }
+  getEmployeesById(employeeId:any): Observable<ApiResponse>{
+    this.apiUrl = `https://dummy.restapiexample.com/api/v1/employee/${employeeId}`;
     return this.http.get<ApiResponse>(this.apiUrl);
   }
 }

@@ -3,7 +3,9 @@
 
 <div *ngIf="loading">Loading employees...</div>
 <div *ngIf="error" class="error">{{ error }}</div>
-
+<button (click)="showEmployeeDetails()">show list</button>
+<input type="text" [(ngModel)]="employeeId" placeholder="Search by id" />
+<button (click)="searchEmployee()">Search</button>
 <table *ngIf="!loading && !error" border="1" cellpadding="8" cellspacing="0">
   <thead>
     <tr>
